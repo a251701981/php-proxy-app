@@ -1,6 +1,9 @@
 <?php
 error_reporting(E_ALL);
+ini_set("include_path", ".:../:./include:../include");
+ini_set("error_reporting", "E_ALL");
 define('PROXY_START', microtime(true));
+
 
 require("./vendor/autoload.php");
 use Proxy\Config;
