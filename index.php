@@ -1,5 +1,5 @@
 <?php
-function myErrorHandler($errno, $errstr, $errfile, $errline)
+set_error_handler(function($errno, $errstr, $errfile, $errline)
 {
     switch ($errno) {
     case E_NOTICE:
@@ -14,13 +14,8 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
     }
 
     return true;
-}
+});
 
-$error_handler = set_error_handler("myErrorHandler");
-
-if($a == 1) {
-        echo 'test error';
-}
 
 error_reporting(E_ALL);
 ini_set("include_path", ".:../:./include:../include");
