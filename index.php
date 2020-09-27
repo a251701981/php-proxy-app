@@ -1,9 +1,29 @@
 <?php
+set_error_handler(function($errno, $errstr, $errfile, $errline)
+{
+    switch ($errno) {
+    case E_NOTICE:
+        echo "<b>My NOTICE</b> [$errno] $errstr<br />\n";
+        break;
+    case E_ERROR:
+        echo "<b>My ERROR</b> [$errno] $errstr<br />\n";
+        break;
+    default:
+        echo "Unknown error type: [$errno] $errstr<br />\n";
+        break;
+    }
+
+    return true;
+});
+
+
 error_reporting(E_ALL);
+ini_set("include_path", ".:../:./include:../include");
+ini_set("error_reporting", "E_ALL");
 define('PROXY_START', microtime(true));
 
-require("vendor/autoload.php");
 
+require("./vendor/autoload.php");
 use Proxy\Config;
 use Proxy\Http\Request;
 use Proxy\Proxy;
@@ -71,7 +91,6 @@ if (isset($_POST['url'])) {
 
 // decode q parameter to get the real URL
 $url = url_decrypt($_GET['q']);
-
 $proxy = new Proxy();
 
 // load plugins
