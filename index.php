@@ -1,7 +1,4 @@
 <?php
-
-<?php
-
 function myErrorHandler($errno, $errstr, $errfile, $errline)
 {
     switch ($errno) {
