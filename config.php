@@ -1,6 +1,4 @@
 <?php
-echo 123;
-exit;
 // all possible options will be stored
 $config = array();
 
