@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 define('PROXY_START', microtime(true));
 
 require("vendor/autoload.php");
+echo date('H:i:s');exit;
 use Proxy\Config;
 use Proxy\Http\Request;
 use Proxy\Proxy;
