@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ALL);
+phpinfo();exit;
 define('PROXY_START', microtime(true));
 
 require("vendor/autoload.php");
@@ -71,7 +72,6 @@ if (isset($_POST['url'])) {
 
 // decode q parameter to get the real URL
 $url = url_decrypt($_GET['q']);
-echo $url;exit;
 $proxy = new Proxy();
 
 // load plugins
