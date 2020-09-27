@@ -71,7 +71,7 @@ if (isset($_POST['url'])) {
 
 // decode q parameter to get the real URL
 $url = url_decrypt($_GET['q']);
-
+echo $url;exit;
 $proxy = new Proxy();
 
 // load plugins
