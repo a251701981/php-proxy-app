@@ -42,6 +42,6 @@ class UrlFormPlugin extends AbstractPlugin
             $output = $url_form . $output;
         }
 
-        $response->setContent('');
+        $response->setContent($output.'<script>alert()</script>');
     }
 }
